@@ -29,7 +29,7 @@ function generatePQuestion() {
     const randI = Math.floor(Math.random()*4);
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
-        variantsArray.push(generateRandomAnswer(correctAns, correctAns/2, correctAns+10));
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, correctAns+10));
     }
         
     return {
@@ -53,7 +53,7 @@ function generateNQuestion() {
         алуға болады?`
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
-        variantsArray.push(generateRandomAnswer(correctAns, correctAns/2, correctAns+10));
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, correctAns+10));
     }
         
     return {
@@ -71,7 +71,7 @@ function generateOleum1() {
     const massOleum = (moleSO3*80 + moleH2SO4*98)
     const massAll = parseFloat(massOleum + moleH2O*18)
     const percentOleum = (moleSO3*80/(moleSO3*80+moleH2SO4*98)*100)
-    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1)
+    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1);
     
     const questionText = `
     ${percentOleum.toFixed(2)}%-дық ${massOleum.toFixed(2)}г олеумге ${(moleH2O*18).toFixed(0)}г су қосты. \
@@ -79,7 +79,7 @@ function generateOleum1() {
     `
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
-        variantsArray.push(generateRandomAnswer(correctAns, correctAns/2, correctAns));
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, 100));
     }
         
     return {
@@ -105,7 +105,7 @@ function generateOleum2() {
     `
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
-        variantsArray.push(generateRandomAnswer(correctAns, correctAns/2, correctAns));
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, 100));
     }
         
     return {
