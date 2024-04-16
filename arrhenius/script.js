@@ -100,7 +100,7 @@ function generateOleum2() {
     const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1);
     
     const questionText = `
-    Күкірт қышқылының ${percentAcid.toFixed(2)}%-дық ${massAcid.toFixed}(2)г ерітіндісіне ${massSO3.toFixed(2)}г күкірт (VI) оксидін қосты. \
+    Күкірт қышқылының ${percentAcid.toFixed(2)}%-дық ${massAcid.toFixed(2)}г ерітіндісіне ${massSO3.toFixed(2)}г күкірт (VI) оксидін қосты. \
     Түзілген олеумдегі күкірт(VI) оксидінің массалық үлесін есептеңдер. 
     `
     const variantsArray = [];
