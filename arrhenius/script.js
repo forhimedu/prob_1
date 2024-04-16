@@ -71,7 +71,7 @@ function generateOleum1() {
     const massOleum = (moleSO3*80 + moleH2SO4*98)
     const massAll = parseFloat(massOleum + moleH2O*18)
     const percentOleum = (moleSO3*80/(moleSO3*80+moleH2SO4*98)*100)
-    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll)
+    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1)
     
     const questionText = `
     ${percentOleum.toFixed(2)}%-дық ${massOleum.toFixed(2)}г олеумге ${(moleH2O*18).toFixed(0)}г су қосты. \
