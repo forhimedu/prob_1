@@ -158,8 +158,7 @@ function App() {
     variantsContainer.innerHTML = "";
 
     // generates a question object with its correct answer
-    // const data = pickRandomElem(generateRandomQuestion);
-    const data = generateRandomQuestion[3]();
+    const data = pickRandomElem(generateRandomQuestion);
     const questionText = document.createElement('h4');
     questionText.textContent = data.question;
     questionContainer.appendChild(questionText);
