@@ -203,10 +203,50 @@ function generateOleum5() {
     }
 }
 
+function generateOleum6() { 
+    
+    //oleum
+    const mole1SO3 = parseFloat((Math.random()*5).toFixed(1));
+    const mole1H2SO4 = mole1SO3*2;
+    const mass1H2SO4 = mole1H2SO4*98;
+    const mass1SO3 = mole1SO3*80;
+    const mass1All = mass1SO3 + mass1H2SO4;
+    
+    //solutions
+    const mole2H2O = parseFloat((Math.random()*10 + mole1SO3).toFixed(1));
+    const percent2H2O = parseInt(Math.random()*5 + 3) * 10
+    const mass2All = parseFloat(((18*mole2H2O)/(percent2H2O/100)).toFixed(1))
+    const mass2H2SO4 = parseFloat((mass2All*(100-percent2H2O)/100).toFixed(1));
+    
+    const massAllH2SO4 = (mole1SO3*98+mass1H2SO4+mass2H2SO4);
+    const percentH2SO4 = (100*massAllH2SO4/(mass1All + mass2All)).toFixed(2)
+    const correctAns = parseFloat(mass1All.toFixed(2));
+
+    const questionText = 
+    `
+    Күкірт қышқылының ${percentH2SO4}%-дық ерітіндісін алу үшін \
+    массасы ${mass2All}г ${(100-percent2H2O).toFixed(2)}%-дық күкірт қышқылына қанша грамм \
+    құрамы H\u2082SO\u2084∙0,5SO\u2083 болатын олеум қосу қажет?
+    `
+    
+    
+    const variantsArray = [];
+    for (let i = 0; i<3; i++) {
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, 100));
+    }
+        
+    return {
+        question: questionText,
+        answer: correctAns,
+        variants: variantsArray,
+    }
+}
+
 
 
 //array of question generation functions
-const generateRandomQuestion = [generateNQuestion, generatePQuestion, generateOleum1, generateOleum2, generateOleum3, generateOleum4, generateOleum5];
+const generateRandomQuestion = [generateNQuestion, generatePQuestion, generateOleum1, 
+    generateOleum2, generateOleum3, generateOleum4, generateOleum5, generateOleum6];
 
 
 //generates the random answer based on given answer, the range is provided as well, 
@@ -245,7 +285,7 @@ function App() {
 
     // generates a question object with its correct answer
     const data = pickRandomElem(generateRandomQuestion);
-    // const data = generateRandomQuestion[6]();
+    // const data = generateRandomQuestion[7]();
     const questionText = document.createElement('h4');
     questionText.textContent = data.question;
     questionContainer.appendChild(questionText);
