@@ -49,7 +49,7 @@ function generateNQuestion() {
     const questions = 
         `Жанасу аппаратындағы тотығу өнімінің шығымы ${yield1.toFixed(2)}%,  \
         алсіңіру қондырғысындағы қышқылдың шығымы ${yield2.toFixed(2)}% болса, \
-        ${ammonia}т аммиактан азот қышқылының ${percent.toFixed(2)}%-дық ерітіндісінің қандай массасын \
+        ${ammonia.toFixed(2)}т аммиактан азот қышқылының ${percent.toFixed(2)}%-дық ерітіндісінің қандай массасын \
         алуға болады?`
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
