@@ -8,22 +8,22 @@ let submitted = false;
 
 //generates a question related to phosphorus
 function generatePQuestion() {
-    const phosphorus = ((Math.random() * (5.0 - 0.5)) + 0.5).toFixed(1);
-    const percent = (Math.random()*40 + 20).toFixed(1);
-    const loss = (Math.random()*10 + 1).toFixed(0);
+    const phosphorus = ((Math.random() * (5.0 - 0.5)) + 0.5)
+    const percent = (Math.random()*40 + 20)
+    const loss = (Math.random()*10 + 1)
     const correctAns = (((phosphorus/31)/(2*((100-loss)/100))) * 310 / (percent/100)).toFixed(1);
     const questions = [
         `Қаратау тауларындағы фосфорит кендеріндегі кальций фосфатының \ 
-        массалық үлесі ${percent.toString()}%. ${phosphorus.toString()}т фосфор алу үшін фосфориттің қандай массасы керек \
-        екенін есептеңдер. Өнімнің шығымы ${(100-loss).toString()}%.`,
-        `${phosphorus.toString()}т фосфор алу үшін құрамында ${percent.toString()}% кальций фосфаты\
+        массалық үлесі ${percent.toFixed(2).toString()}%. ${phosphorus.toString()}т фосфор алу үшін фосфориттің қандай массасы керек \
+        екенін есептеңдер. Өнімнің шығымы ${(100-loss).toFixed(2).toString()}%.`,
+        `${phosphorus.toFixed(2).toString()}т фосфор алу үшін құрамында ${percent.toFixed(2).toString()}% кальций фосфаты\
         бар фосфориттің қандай массасы керек екенін есептеңдер. Өндірістегі фосфордың \
-       шығыны ${loss.toString()}%.`,
-        `Хибин фосфорит кендеріндегі кальций фосфатының массалық үлесі ${percent.toString()}%. \
-        Шығымды ${(100-loss).toString()}% деп есептеп, массасы ${phosphorus.toString()}т фосфор алу үшін \
+       шығыны ${loss.toFixed(2).toString()}%.`,
+        `Хибин фосфорит кендеріндегі кальций фосфатының массалық үлесі ${percent.toFixed(2).toString()}%. \
+        Шығымды ${(100-loss).toFixed(2).toString()}% деп есептеп, массасы ${phosphorus.toFixed(2).toString()}т фосфор алу үшін \
         фосфориттің қандай массасы керек екенін есептеңдер.`,
-        `Хибин фосфорит кендеріндегі кальций фосфатының массалық үлесі ${percent.toString()}%. \
-        Шығынды ${loss.toString()}% деп есептеп, массасы ${phosphorus.toString()}т фосфор алу үшін \
+        `Хибин фосфорит кендеріндегі кальций фосфатының массалық үлесі ${percent.toFixed(2).toString()}%. \
+        Шығынды ${loss.toFixed(2).toString()}% деп есептеп, массасы ${phosphorus.toFixed(2).toString()}т фосфор алу үшін \
         фосфориттің қандай массасы керек екенін есептеңдер.`
     ]
     const randI = Math.floor(Math.random()*4);
@@ -41,15 +41,15 @@ function generatePQuestion() {
 
 //generates a question on ammonia nitric acid
 function generateNQuestion() {
-    const ammonia = ((Math.random() * (20.0 - 0.5)) + 0.5).toFixed(1);
-    const yield1 = (Math.random()*50 + 48).toFixed(1);
-    const yield2 = (Math.random()*50 + 48).toFixed(1);
-    const percent = (Math.random()*40 + 55).toFixed(1);
+    const ammonia = ((Math.random() * (20.0 - 0.5)) + 0.5);
+    const yield1 = (Math.random()*50 + 48)
+    const yield2 = (Math.random()*50 + 48)
+    const percent = (Math.random()*40 + 55)
     const correctAns = ((((ammonia/17)*(yield1/100)*(yield2/100))/(percent/100))*63).toFixed(1);
     const questions = 
-        `Жанасу аппаратындағы тотығу өнімінің шығымы ${yield1}%,  \
-        алсіңіру қондырғысындағы қышқылдың шығымы ${yield2}% болса, \
-        ${ammonia}т аммиактан азот қышқылының ${percent}%-дық ерітіндісінің қандай массасын \
+        `Жанасу аппаратындағы тотығу өнімінің шығымы ${yield1.toFixed(2)}%,  \
+        алсіңіру қондырғысындағы қышқылдың шығымы ${yield2.toFixed(2)}% болса, \
+        ${ammonia}т аммиактан азот қышқылының ${percent.toFixed(2)}%-дық ерітіндісінің қандай массасын \
         алуға болады?`
     const variantsArray = [];
     for (let i = 0; i<3; i++) {
@@ -65,16 +65,16 @@ function generateNQuestion() {
 
 //generates oleum 1 type question
 function generateOleum1() {
-    const moleH2O = (Math.random()*5 + 0.1).toFixed(2);
-    const moleSO3 = (Math.random()*3 + parseFloat(moleH2O)).toFixed(2);
-    const moleH2SO4 = (Math.random()*5 + 1).toFixed(2);
-    const massOleum = (moleSO3*80 + moleH2SO4*98).toFixed(2);
-    const massAll = parseFloat(massOleum + moleH2O*18).toFixed(2)
-    const percentOleum = (moleSO3*80/(moleSO3*80+moleH2SO4*98)*100).toFixed(2);
-    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1);
+    const moleH2O = (Math.random()*5 + 0.1)
+    const moleSO3 = (Math.random()*3 + parseFloat(moleH2O))
+    const moleH2SO4 = (Math.random()*5 + 1)
+    const massOleum = (moleSO3*80 + moleH2SO4*98)
+    const massAll = parseFloat(massOleum + moleH2O*18)
+    const percentOleum = (moleSO3*80/(moleSO3*80+moleH2SO4*98)*100)
+    const correctAns = (100*((moleSO3-moleH2O)*80)/massAll)
     
     const questionText = `
-    ${percentOleum}%-дық ${massOleum}г олеумге ${(moleH2O*18).toFixed(0)}г су қосты. \
+    ${percentOleum.toFixed(2)}%-дық ${massOleum.toFixed(2)}г олеумге ${(moleH2O*18).toFixed(0)}г су қосты. \
     Түзілген ерітіндідегі заттың массалық үлесін есептеңдер.
     `
     const variantsArray = [];
@@ -90,17 +90,17 @@ function generateOleum1() {
 }
 
 function generateOleum2() {
-    const moleH2O = (Math.random()*5 + 0.1).toFixed(2);
-    const moleSO3 = (Math.random()*3 + parseFloat(moleH2O)).toFixed(2);
-    const moleH2SO4 = (Math.random()*5 + 1).toFixed(2);
-    const massAcid = (moleH2O*18 + moleH2SO4*98).toFixed(2);
-    const massAll = parseFloat(massAcid + moleSO3*80).toFixed(2)
-    const percentAcid = (moleH2SO4*98/(parseFloat(massAcid))*100).toFixed(2);
-    const massSO3 = (moleSO3*80).toFixed(2);
+    const moleH2O = Math.random()*5 + 0.1
+    const moleSO3 = (Math.random()*3 + parseFloat(moleH2O))
+    const moleH2SO4 = (Math.random()*5 + 1)
+    const massAcid = (moleH2O*18 + moleH2SO4*98)
+    const massAll = parseFloat(massAcid + moleSO3*80);
+    const percentAcid = (moleH2SO4*98/(parseFloat(massAcid))*100)
+    const massSO3 = (moleSO3*80)
     const correctAns = (100*((moleSO3-moleH2O)*80)/massAll).toFixed(1);
     
     const questionText = `
-    Күкірт қышқылының ${percentAcid}%-дық ${massAcid}г ерітіндісіне ${massSO3}г күкірт (VI) оксидін қосты. \
+    Күкірт қышқылының ${percentAcid.toFixed(2)}%-дық ${massAcid}.toFixed(2)г ерітіндісіне ${massSO3.toFixed(2)}г күкірт (VI) оксидін қосты. \
     Түзілген олеумдегі күкірт(VI) оксидінің массалық үлесін есептеңдер. 
     `
     const variantsArray = [];
