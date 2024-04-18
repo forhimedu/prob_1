@@ -11,14 +11,14 @@ let submitted = false;
 function generateAldehyde1() {
     const aldeData = [
         ["HCHO", 30],
-        ["CH\u2083CHO", 44],
-        ["C\u2082H\u2085CHO", 58],
-        ["C\u2083H\u2087CHO", 72],
-        ["C\u2084H\u2089CHO", 86],
-        ["C\u2085H\u2081\u2081CHO", 100],
-        ["C\u2086H\u2081\u2083CHO", 114],
-        ["C\u2087H\u2081\u2085CHO", 128],
-        ["C\u2088H\u2081\u2087CHO", 142],
+        ["CH<sub>3</sub>CHO", 44],
+        ["C<sub>2</sub>H<sub>5</sub>CHO", 58],
+        ["C<sub>3</sub>H7CHO", 72],
+        ["C<sub>4</sub>H<sub>9</sub>CHO", 86],
+        ["C<sub>5</sub>H<sub>11</sub>CHO", 100],
+        ["C<sub>6</sub>H<sub>13</sub>CHO", 114],
+        ["C<sub>7</sub>H<sub>15</sub>CHO", 128],
+        ["C<sub>8</sub>H<sub>17</sub>CHO", 142],
     ]
     
     const mole = parseFloat((Math.random()*5).toFixed(2));
@@ -53,12 +53,12 @@ function generateAldehyde1() {
 function generateCarbAcid1() {
     const carbData = [
         ["HCOOH", 46],
-        ["CH\u2083COOH", 60],
-        ["C\u2082H\u2085COOH", 74],
-        ["C\u2083H\u2087COOH", 88],
-        ["C\u2084H\u2089COOH", 102],
-        ["C\u2085H\u2081\u2081COOH", 116],
-        ["C\u2086H\u2081\u2083COOH", 130],
+        ["CH<sub>3</sub>COOH", 60],
+        ["C<sub>2</sub>H<sub>5</sub>COOH", 74],
+        ["C<sub>3</sub>H<sub>7</sub>COOH", 88],
+        ["C<sub>4</sub>H<sub>9</sub>COOH", 102],
+        ["C<sub>5</sub>H<sub>11</sub>COOH", 116],
+        ["C<sub>6</sub>H<sub>13</sub>COOH", 130],
     ]
     
     const mole = parseFloat((Math.random()*5).toFixed(2));
@@ -115,27 +115,24 @@ function generateMixAlFe1() {
 
 function generateMixBurn1() {
     
-    const volAll = parseInt(Math.random()*15) * 10;
+    const volAll = parseInt(Math.random()*15+1) * 10;
     const percentValues = generateFourPercents();
     const perMethane = percentValues[0]
-    const perEthane = percentValues[1]
+    const perEthene = percentValues[1]
     const perCO = percentValues[2]
     const perN = percentValues[3]
 
-    const correctAns = (5*((2*volAll*perMethane/100) + (2*volAll*perEthane/100) + (volAll*perCO/200))).toFixed(1);
+    const correctAns = (5*(((2*volAll*perMethane)/100) + ((3*volAll*perEthene)/100) + (volAll*perCO/200))).toFixed(1);
     const variantsArray = [];
 
     for (let i = 0; i<3; i++) {
         variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, correctAns*1.5));
     }
 
-    // // CH4 + 2O2 => CO2 + 2H2O
-    // // C2H4 + 3O2 => CO2 + 2H2O
-    // // 2CO + O2 => 2CO2
 
     const questionText = `
-    Құрамында ${perMethane}% метан, ${perEthane}% этилен, ${perCO}% көміртек(ІІ) оксиді және ${perN}% азот болатын \
-    көлемі ${volAll}м\u00b3 (қ.ж.) табиғи газды жағуға неше литр (қ.ж.) ауа керек?
+    Құрамында ${perMethane}% метан, ${perEthene}% этилен, ${perCO}% көміртек(ІІ) оксиді және ${perN}% азот болатын \
+    көлемі ${volAll}м<sup>3</sup> (қ.ж.) табиғи газды жағуға неше литр (қ.ж.) ауа керек?
     `
        
     return {
@@ -177,28 +174,28 @@ function generateAcidBaseMolarity() {
     }
 }
 
-function generateMixMetalMasses() {
+function generateMixBurn2() {
     
-    const mol1 = parseFloat((Math.random()).toFixed(4));
-    const vol1 = parseFloat((Math.random()*20 + 10).toFixed(2));
-    const correctAns = parseFloat((Math.random()*20 + 10).toFixed(1))
-    const mol2 = parseFloat((mol1*vol1/correctAns).toFixed(4))
+    const volAll = parseInt(Math.random()*15+1) * 10;
+    const percentValues = generateFourPercents();
+    const perMethane = percentValues[0]
+    const perEthane = percentValues[1]
+    const perCO2 = percentValues[2]
+    const perN = percentValues[3]
 
-
+    const correctAns = (5*(((2*volAll*perMethane)/100) + ((3.5*volAll*perEthane)/100))).toFixed(1);
     const variantsArray = [];
 
     for (let i = 0; i<3; i++) {
-        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, correctAns*2));
+        variantsArray.push(generateRandomAnswer(correctAns, correctAns/3, correctAns*1.5));
     }
 
-    
-    const questionText = 
+
+    const questionText = `
+    Құрамында ${perMethane}% метан, ${perEthane}% этилен, ${perCO2}% көміртек(IV) оксиді және ${perN}% азот болатын \
+    көлемі ${volAll}м<sup>3</sup> (қ.ж.) табиғи газды жағуға неше литр (қ.ж.) ауа керек?
     `
-    Массасы 27,6г кремний, темір және алюминийден тұратын қоспаны қыздыра отырып, калий гидроксидінің артық мөлшерімен өңдегенде 22,4л(қ.ж.) газ түзілді. Қоспаның \
-    осындай массасына тұз қышқылымен әсер еткенде 17,92л(қ.ж.) газ түзілді. Қоспаның массалық құрамын анықтаңдар.
-    Жауабы: 5,6г кремний, 10,8г алюминий, 11,2г темір
-    `
-    
+       
     return {
         question: questionText,
         answer: correctAns,
@@ -335,7 +332,10 @@ function generateFourPercents() {
 
 /**
  * Құрамында90%метан,5%этан,3%көміртек(ІV)оксидіжәне2%азотболатынкөлемі50м3(қ.ж.)табиғигаздыжағуғанешелитр(қ.ж.)ауакерек?
-
+CH4 + 2O2 -> CO2 + H2O 
+2C2H6 + 7O2 -> 4CO2 + 6H2O 
+2CO + O2 -> 2CO2
+N2 + O2 -> 2NO
 Жауабы:V(ауа)=493,75м3.
  */
 
@@ -426,7 +426,8 @@ function generateFourPercents() {
 
 
 //array of question generation functions
-const generateRandomQuestion = [generateAldehyde1, generateCarbAcid1, generateMixAlFe1, generateMixBurn1, generateAcidBaseMolarity];
+const generateRandomQuestion = [generateAldehyde1, generateCarbAcid1, generateMixAlFe1, generateMixBurn1, generateAcidBaseMolarity,
+    generateMixBurn2, ];
 
 
 //generates the random answer based on given answer, the range is provided as well, 
@@ -464,10 +465,10 @@ function App() {
     variantsContainer.innerHTML = "";
 
     // generates a question object with its correct answer
-    const data = pickRandomElem(generateRandomQuestion);
-    // const data = generateRandomQuestion[4]();
+    // const data = pickRandomElem(generateRandomQuestion);
+    const data = generateRandomQuestion[5]();
     const questionText = document.createElement('h4');
-    questionText.textContent = data.question;
+    questionText.innerHTML = data.question;
     questionContainer.appendChild(questionText);
     correctAnswer = data.answer;
     //an array of variants, first one being the correct answer
@@ -478,7 +479,7 @@ function App() {
     for(let i = 0; i<4; i++){
         const spanVariant = document.createElement('span');
         spanVariant.classList.add('variant');
-        spanVariant.textContent = variants[i];
+        spanVariant.innerHTML = variants[i];
         spanVariant.addEventListener('click', (e) => {
             e.preventDefault();
             removeClassList('selected');
@@ -520,16 +521,16 @@ function removeClassList(className) {
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (document.querySelector('.selected') && !submitted) {
-        if (correctAnswer.toString() == document.querySelector('.selected').textContent.toString()) {
-            let a = parseInt(document.querySelector('.score').textContent)
-            document.querySelector('.score').textContent = a+1;
+        if (correctAnswer.toString() == document.querySelector('.selected').innerHTML.toString()) {
+            let a = parseInt(document.querySelector('.score').innerHTML)
+            document.querySelector('.score').innerHTML = a+1;
             removeClassList('incorrectAnswer');
             document.querySelector('.selected').classList.add('correctAnswer');
             submitted = true;
             appRunning = false;
         } else {
-            let a = parseInt(document.querySelector('.score').textContent)
-            document.querySelector('.score').textContent = a-1;
+            let a = parseInt(document.querySelector('.score').innerHTML)
+            document.querySelector('.score').innerHTML = a-1;
             removeClassList('incorrectAnswer');
             document.querySelector('.selected').classList.add('incorrectAnswer');
 
