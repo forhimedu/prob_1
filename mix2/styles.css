@@ -21,6 +21,11 @@ body {
     background-color: rgb(204, 190, 190);
 }
 
+sub {
+    position: relative;
+    top: 3px;
+}
+
 #container {
     display: flex;
     flex-direction: column;
