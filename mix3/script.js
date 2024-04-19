@@ -160,8 +160,8 @@ function generateMixture4() {
 
     
     const ans = [
-        ["мыстың", perMg],
-        ["магнийдің", perCu]
+        ["мыстың", perCu],
+        ["магнийдің", perMg]
     ]
 
     const correctAnsArray = pickRandomElem(ans);
