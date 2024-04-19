@@ -192,7 +192,7 @@ function generateMixBurn2() {
 
 
     const questionText = `
-    Құрамында ${perMethane}% метан, ${perEthane}% этилен, ${perCO2}% көміртек(IV) оксиді және ${perN}% азот болатын \
+    Құрамында ${perMethane}% метан, ${perEthane}% этан, ${perCO2}% көміртек(IV) оксиді және ${perN}% азот болатын \
     көлемі ${volAll}м<sup>3</sup> (қ.ж.) табиғи газды жағуға неше литр (қ.ж.) ауа керек?
     `
        
